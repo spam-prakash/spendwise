@@ -1,10 +1,9 @@
 const express = require('express')
 const connectToMongo = require('./db')
-const userdb = require('./models/User')
+// const userdb = require('./models/User')
 connectToMongo()
-const cors=require('cors')
-const jwt=require('jsonwebtoken')
-
+const cors = require('cors')
+// const jwt = require('jsonwebtoken')
 
 const PORT = 8000
 const app = express()
@@ -12,7 +11,6 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-
 
 const corsOptions = {
   // origin: allowedOrigins, // Your frontend URL
@@ -23,14 +21,7 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-
-
-
-
-
 app.use('/api/auth', require('./api/auth'))
-
-
 
 app.get('/', (req, res) => {
   res.send('Backend Route for SpendWise')
