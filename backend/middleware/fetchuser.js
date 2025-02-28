@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const JWT_SCREAT = process.env.JWTSIGN
 
 const   fetchuser = (req, res, next) => {
-  const token = req.header('auth-token')
+  const token = req.header('authToken')
   if (!token) {
     return res.status(401).json({ error: 'Please authenticate using a valid token' })
   }
